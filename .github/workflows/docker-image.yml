@@ -24,3 +24,6 @@ jobs:
     - name: Build the Docker image
       run: |
         docker build . -t akashacharya/nodejs-app-image
+    - name: docker push
+      run: |
+         docker push akashacharya/nodejs-app-image
