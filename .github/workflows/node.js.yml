@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js 16
+    - name: Use Node.js 16 for our app
     - uses: actions/setup-node@v3
     - run: node --version
     - run: npm --version
