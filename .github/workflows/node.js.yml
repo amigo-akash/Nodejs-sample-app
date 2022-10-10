@@ -20,5 +20,5 @@ jobs:
       uses: actions/setup-node@v3
     - run: node --version
     - run: npm --version
-    - run: npm install
-    - run: node app.js
+    - name: create the docker image for the application
+    - run: docker build -t nodejs-image .
