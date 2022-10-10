@@ -19,6 +19,6 @@ jobs:
     - name: Use Node.js 16
       uses: actions/setup-node@v3
     - run: node --version
-    - run: npm --bersion
+    - run: npm --version
     - run: npm install
     - run: node app.js
