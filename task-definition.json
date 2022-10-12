@@ -50,13 +50,13 @@
       }
     ],
     "placementConstraints": [],
-    "memory": "512",
+    "memory": "1024",
     "taskRoleArn": null,
     "compatibilities": [
       "EXTERNAL",
       "EC2"
     ],
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:055968157196:task-definition/nodejs-app-task-definition:3",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:055968157196:task-definition/nodejs-app-task-definition:5",
     "family": "nodejs-app-task-definition",
     "requiresAttributes": [
       {
@@ -72,8 +72,8 @@
     ],
     "networkMode": null,
     "runtimePlatform": null,
-    "cpu": "1024",
-    "revision": 3,
+    "cpu": "2048",
+    "revision": 5,
     "status": "ACTIVE",
     "inferenceAccelerators": null,
     "proxyConfiguration": null,
