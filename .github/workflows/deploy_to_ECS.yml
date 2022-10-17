@@ -6,7 +6,7 @@ on:
 
 
 env:
-  ECR_REPOSITORY: nodejsregistry              # set this to your Amazon ECR repository name
+  ECR_REGISTRY: nodejsregistry              # set this to your Amazon ECR repository name
   ECS_SERVICE: nodejs-app-service             # set this to your Amazon ECS service name
   ECS_CLUSTER: nodejs-app-cluster             # set this to your Amazon ECS cluster name
   CONTAINER_NAME: nodejs-app-container           # set this to the name of the container in the
@@ -38,25 +38,29 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Build, tag, and push docker image to Amazon ECR
-        id: buildimage
+      
+      - name: Build, tag, and push image to Amazon ECR
+        id: build-image
         env:
-          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          REPOSITORY: nodejsregistry 
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ env.ECR_REGISTRY }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
-          echo "Build succeeded and proceeding to push the image to ECR"
-          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
-
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: task-definition.json
-          container-name: ${{ env.CONTAINER_NAME }}
-          image: ${{ steps.buildimage.outputs.image }}
+          container-name: ${{ env.CONTAINER_NAME }} 
+          image: ${{ steps.build-image.outputs.image }}
+
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
@@ -65,6 +69,5 @@ jobs:
           service: ${{ env.ECS_SERVICE }}
           cluster: ${{ env.ECS_CLUSTER }}
           wait-for-service-stability: true
-
 
 
