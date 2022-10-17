@@ -1,6 +1,6 @@
 {
   "ipcMode": null,
-  "executionRoleArn": "arn:aws:iam::055968157196:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::927491280662:role/AmazonECSTaskExecutionRole",
   "containerDefinitions": [
     {
       "dnsSearchDomains": null,
@@ -9,7 +9,7 @@
         "logDriver": "awslogs",
         "secretOptions": null,
         "options": {
-          "awslogs-group": "/ecs/nodejs-task-definition",
+          "awslogs-group": "/ecs/nodejs-app-task-definition",
           "awslogs-region": "ap-south-1",
           "awslogs-stream-prefix": "ecs"
         }
@@ -37,7 +37,7 @@
       "memoryReservation": 128,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "055968157196.dkr.ecr.ap-south-1.amazonaws.com/nodejsregistry:$IMAGE_TAG",
+      "image": "927491280662.dkr.ecr.ap-south-1.amazonaws.com/nodejsregistry:$IMAGE_TAG",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -59,13 +59,13 @@
   ],
   "placementConstraints": [],
   "memory": "1024",
-  "taskRoleArn": "arn:aws:iam::055968157196:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::927491280662:role/AmazonECSTaskExecutionRole",
   "compatibilities": [
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:ap-south-1:055968157196:task-definition/nodejs-task-definition:2",
-  "family": "nodejs-task-definition",
+  "taskDefinitionArn": "arn:aws:ecs:ap-south-1:927491280662:task-definition/nodejs-app-task-definition:2",
+  "family": "nodejs-app-task-definition",
   "requiresAttributes": [
     {
       "targetId": null,
