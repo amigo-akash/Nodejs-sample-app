@@ -1,4 +1,4 @@
-name: Deploy docker image to ECR
+name: Deploy docker image to ECS
 
 on:
   push:
