@@ -1,4 +1,4 @@
-name: Deploy docker image to EKS
+name: Deploy ECR image to EKS
 
 on:
   push:
