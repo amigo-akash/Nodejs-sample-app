@@ -64,7 +64,7 @@
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:ap-south-1:927491280662:task-definition/nodejs-app-task-definition:2",
+  "taskDefinitionArn": "arn:aws:ecs:ap-south-1:927491280662:task-definition/nodejs-app-task-definition:5",
   "family": "nodejs-app-task-definition",
   "requiresAttributes": [
     {
@@ -132,7 +132,7 @@
     "cpuArchitecture": null
   },
   "cpu": "512",
-  "revision": 2,
+  "revision": 5,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
