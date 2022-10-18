@@ -35,7 +35,7 @@ metadata:
   selfLink: /api/v1/namespaces/default/services/mydeploy
   uid: sdjsbcjscbdbc-dcdb-dcdc
 spec:
-  clusterIP: 10.20.30.2
+  clusterIP: 	10.100.2.0
   externalTrafficPolicy: Cluster
   ports:
   - nodePort: 31455
