@@ -62,7 +62,7 @@ jobs:
     
 
       - name: update kubeconfig
-        run: aws eks update-kubeconfig --name nodejs-eks-clusters --region ap-south-1
+        run: aws eks update-kubeconfig --name demo-cluster --region ap-south-1
       
       - name: deployment to eks
         run: |
@@ -70,5 +70,6 @@ jobs:
            kubectl cluster-info
            kubectl apply -f deployment.yml
            kubectl get pods
+           kubectl get svc
 
 
