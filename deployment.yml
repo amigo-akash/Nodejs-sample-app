@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: node
-        image: 055968157196.dkr.ecr.ap-south-1.amazonaws.com/nodejsregistry:latest
+        image: akashacharya/test-image:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
